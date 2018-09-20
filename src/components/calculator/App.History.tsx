@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-export class AppHistory extends Component<IProps, IState> {
-    stack: Array<any>;
+export class AppHistory extends Component {
+    stack: Array<string>;
     state: Object;
 
-    constructor(props: IProps) {
+    constructor(props) {
         super(props);
         this.stack = [];
         this.newLine();
