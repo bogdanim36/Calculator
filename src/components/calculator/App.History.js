@@ -1,5 +1,5 @@
-import React from 'react';
-export class AppHistory extends React.Component {
+import React, { Component } from 'react';
+export class AppHistory extends Component {
     constructor(props) {
         super(props);
         this.stack = [];
@@ -23,13 +23,14 @@ export class AppHistory extends React.Component {
             return;
         let result;
         try {
+            // eslint-disable-next-line
             result = eval(line);
         }
         catch (e) {
-            console.error("evaluate error for line", line);
+            console.error('evaluate error for line', line);
             return;
         }
-        this.stack[this.stack.length - 1] += " " + value + " ";
+        this.stack[this.stack.length - 1] += ' ' + value + ' ';
         this.newLine();
         this.stack[this.stack.length - 1] = result.toString();
         this.setState({ stack: this.stack });
@@ -50,8 +51,8 @@ export class AppHistory extends React.Component {
         this.setState({ stack: this.stack });
     }
     render() {
-        return React.createElement("div", { className: 'history' }, this.stack.map((item, index) => {
-            return React.createElement("div", { key: index }, item);
+        return React.createElement('div', { className: 'history' }, this.stack.map((item, index) => {
+            return React.createElement('div', { key: index }, item);
         }));
     }
     componentDidMount() {

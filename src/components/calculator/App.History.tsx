@@ -1,12 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export class AppHistory extends React.Component {
-    props: any;
+export class AppHistory extends Component<IProps, IState> {
     stack: Array<any>;
     state: Object;
-    currentLine: Array<string>;
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         this.stack = [];
         this.newLine();
@@ -30,14 +28,15 @@ export class AppHistory extends React.Component {
     addEqual(value) {
         let line = this.stack[this.stack.length - 1];
         if (line.length === 0) return;
-        let result ;
+        let result;
         try {
+            // eslint-disable-next-line
             result = eval(line);
         } catch (e) {
-            console.error("evaluate error for line", line);
+            console.error('evaluate error for line', line);
             return;
         }
-        this.stack[this.stack.length - 1] += " " + value + " ";
+        this.stack[this.stack.length - 1] += ' ' + value + ' ';
         this.newLine();
         this.stack[this.stack.length - 1] = result.toString();
         this.setState({stack: this.stack});
@@ -59,8 +58,8 @@ export class AppHistory extends React.Component {
     }
 
     render() {
-        return React.createElement("div", {className: 'history'}, this.stack.map((item, index) => {
-            return React.createElement("div", {key: index}, item);
+        return React.createElement('div', {className: 'history'}, this.stack.map((item, index) => {
+            return React.createElement('div', {key: index}, item);
         }));
     }
 
@@ -69,7 +68,7 @@ export class AppHistory extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.onRef(undefined)
+        this.props.onRef(undefined);
     }
 
     shouldComponentUpdate() {

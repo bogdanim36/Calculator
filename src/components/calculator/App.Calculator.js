@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
 import { AppHistory } from "./App.History";
 import { AppKeyCodes } from "./App.KeyCodes";
+import React, { Component } from 'react';
 export class AppCalculator extends Component {
-    constructor(history) {
-        super();
+    constructor(props, history) {
+        super(props);
         this.keyCodes = new AppKeyCodes();
         this.clickHandler = this.clickHandler.bind(this);
     }
     render() {
-        return (React.createElement("div", { className: "app-calculator", style: { marginTop: '50px' }, tabindex: "1", ref: (div) => {
+        return (React.createElement("div", { className: "app-calculator", style: { marginTop: '50px' }, tabIndex: "1", ref: (div) => {
                 this.appHolder = div;
             }, onKeyDown: e => this.keyboardHandler(e), onClick: this.clickHandler },
             React.createElement(AppHistory, { onRef: ref => (this.history = ref) }),

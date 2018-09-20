@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
 import {AppHistory} from "./App.History";
 import {AppKeyCodes} from "./App.KeyCodes";
+import React, {Component} from 'react';
 
 
 export class AppCalculator extends Component {
@@ -9,8 +9,8 @@ export class AppCalculator extends Component {
     history: AppHistory;
     appHolder: HTMLElement;
 
-    constructor(history: AppHistory) {
-        super();
+    constructor(props, history: AppHistory) {
+        super(props);
         this.keyCodes = new AppKeyCodes();
         this.clickHandler = this.clickHandler.bind(this);
     }
@@ -19,7 +19,7 @@ export class AppCalculator extends Component {
         return (
             <div className="app-calculator"
                  style={{marginTop: '50px'}}
-                 tabindex="1"
+                 tabIndex="1"
                  ref={(div) => {
                      this.appHolder = div;
                  }}

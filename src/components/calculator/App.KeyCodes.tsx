@@ -40,7 +40,7 @@ export class AppKeyCodes {
         {value: "/", "false": 191, "true": -1},
         {value: "/", "false": 111, "true": -1},
         {value: "C", "false": 67, "true": -1},
-        {value: "Del", "false": 46, "true": -1}
+        {value: "Del", "false": 46, "true": -1},
         {value: "Del", "false": 8, "true": -1}
     ];
 
