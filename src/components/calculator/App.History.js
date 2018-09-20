@@ -7,7 +7,7 @@ export class AppHistory extends Component {
         this.state = { stack: [] };
     }
     newLine() {
-        this.stack.push([]);
+        this.stack.push("");
     }
     addNumber(value) {
         this.stack[this.stack.length - 1] += value;

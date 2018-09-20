@@ -12,7 +12,7 @@ export class AppHistory extends Component {
     }
 
     newLine() {
-        this.stack.push([]);
+        this.stack.push("");
     }
 
     addNumber(value) {
